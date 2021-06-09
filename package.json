@@ -1,0 +1,135 @@
+{
+  "name": "find-view-notifier",
+  "displayName": "Find View/Notifier",
+  "description": "Changes the active tab/status-bar/title-background color based on regex & find the view or notifier file quickly",
+  "version": "0.0.1",
+  "publisher": "JeromeGsq",
+  "repository": {
+    "url": "https://https://github.com/JeromeGsq/find_view_notifier_vscode_extension"
+  },
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "categories": [
+    "Other",
+    "Themes",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "monorepo",
+    "reactjs+react-native",
+    "tabs",
+    "title bar color",
+    "status bar color",
+    "tabs color"
+  ],
+  "icon": "docs/FindViewNotifier.png",
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "findViewNotifier.addFolder",
+        "title": "FindViewNotifier: Add folder to configuration"
+      },
+      {
+        "command": "findViewNotifier.removeFolder",
+        "title": "FindViewNotifier: Remove regex from configuration"
+      },
+      {
+        "command": "findViewNotifier.findViewNotifier",
+        "title": "FindViewNotifier: Find View/Notifier",
+        "icon": {
+          "light": "images/compareWithSaved_light.svg",
+          "dark": "images/compareWithSaved.svg"
+        }
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "findViewNotifier.findViewNotifier",
+        "key": "ctrl+alt+1",
+        "mac": "alt+tab"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "findViewNotifier.findViewNotifier",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "FindViewNotifier",
+      "properties": {
+        "findViewNotifier.config": {
+          "type": "array",
+          "default": [
+            {
+              "regex": ".*/web/.*"
+            },
+            {
+              "regex": ".*/mobile/.*"
+            }
+          ],
+          "description": "list of regular expressions"
+        },
+        "findViewNotifier.ignoreCase": {
+          "type": "boolean",
+          "default": false,
+          "description": "Ignores case on Regex matches"
+        },
+        "findViewNotifier.tabBorder": {
+          "type": "boolean",
+          "default": true,
+          "description": "color tab border if regex match found"
+        },
+        "findViewNotifier.editorBackground": {
+          "type": "boolean",
+          "default": true,
+          "description": "color editor background if regex match found (you need to configure 'backgroundColor' in settings)"
+        },
+        "findViewNotifier.titleBackground": {
+          "type": "boolean",
+          "default": false,
+          "description": "color title bar background if regex match found"
+        },
+        "findViewNotifier.activityBarBackground": {
+          "type": "boolean",
+          "default": false,
+          "description": "color activity bar background if regex match found"
+        },
+        "findViewNotifier.statusBarBackground": {
+          "type": "boolean",
+          "default": true,
+          "description": "color status bar background if regex match found"
+        },
+        "findViewNotifier.titleLabel": {
+          "type": "boolean",
+          "default": false,
+          "description": "append label to the title bar using the provided regex label "
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "package": "rm -f color-tabs-vscode-ext-* && vsce package",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^7.0.43",
+    "tslint": "^5.8.0",
+    "typescript": "^3.3",
+    "vsce": "^1.54.0",
+    "vscode": "^1.1.34"
+  }
+}
