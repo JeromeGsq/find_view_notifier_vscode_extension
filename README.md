@@ -1,5 +1,6 @@
-# FindViewNotifier for vscode
+Fork from https://github.com/oreporan/color-tabs-vscode
 
+# FindViewNotifier for vscode
 
 ## Extension Settings
 
