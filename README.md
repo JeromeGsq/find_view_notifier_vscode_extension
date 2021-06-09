@@ -7,7 +7,6 @@ Fork from https://github.com/oreporan/color-tabs-vscode
 This extension contributes the following settings:
 
 * `findViewNotifier.config`:  list of mappings from path to color         
-"default": 
 ```json
     "findViewNotifier.config": [
         {
