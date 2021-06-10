@@ -2,11 +2,12 @@
   "name": "find-view-notifier",
   "displayName": "Find View/Notifier",
   "description": "Changes the active tab/status-bar/title-background color based on regex & find the view or notifier file quickly",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "JeromeGsq",
   "repository": {
     "url": "https://https://github.com/JeromeGsq/find_view_notifier_vscode_extension"
   },
+  "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.30.0"
   },
@@ -29,14 +30,6 @@
   "main": "./out/extension",
   "contributes": {
     "commands": [
-      {
-        "command": "findViewNotifier.addFolder",
-        "title": "FindViewNotifier: Add folder to configuration"
-      },
-      {
-        "command": "findViewNotifier.removeFolder",
-        "title": "FindViewNotifier: Remove regex from configuration"
-      },
       {
         "command": "findViewNotifier.findViewNotifier",
         "title": "FindViewNotifier: Find View/Notifier",
